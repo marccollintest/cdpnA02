@@ -180,8 +180,8 @@ Test du constructeur avec le deuxième paramètre à zéro
         $op1 = new Division0(12,4);
         $this->AssertEquals("Division (12/4)=3 ",$op1->ToString());
     }
-
- /*   public function testRisque()
+/*
+    public function testRisque()
     {
         $op1 = new Division0(8,4);
         $op1 = new Division0(12,4);
@@ -190,11 +190,21 @@ Test du constructeur avec le deuxième paramètre à zéro
     public function testIncomplet()
     {
         $this->markTestIncomplete("En attente");
+        $op = new Division0(15,3);
+        $this->AssertEquals(5,$op->resultat);
     }
+
     public function testIgnore()
     {
         $this->markTestskipped("Ignorer ce tests tant que ....");
     }
-    */
+*/
+
+    public function testEgales()
+    {
+        $op1 = new Division0(6,3);
+        $op2 = new Division0(6,3);
+        $this->AssertTrue($op1->EgaleStrict($op2));
+    }
 }
 ?>

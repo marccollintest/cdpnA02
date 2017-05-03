@@ -5,14 +5,12 @@ class Division0
 	public $op2;
 	public $resultat;
 	public $etat;
-
 	public function __construct($pOp1, $pOp2)
 	{
 		$this->op1 = $pOp1;
 		$this->op2 = $pOp2;
 		$this->calculer($pOp1,$pOp2);
 	}
-
 	public function calculer($pOp1, $pOp2)
 	{
 		$this->op1  = $pOp1;
@@ -25,24 +23,36 @@ class Division0
 		}
 		else
 		{
+			// simulation d'une erreur de codage
+			if ($pOp2 === $pOp1)
+			{
+				$this->resultat =  1;
+			}
+			else
+			{
 			$this->resultat =  $this->op1 / $this->op2;
+			}
 			$this->etat =  true;
 		}
 		return $this->etat;
 	}
-	
 	public function Equals( Division0 $pDivision2)
 	{
 		return $pDivision2->resultat === $this->resultat;
-//		return true;
 	}
-
 	public function ToString()
 	{
 		return "Division ($this->op1/$this->op2)=$this->resultat ";
 	}
+
+	/**
+	* 2 Divisions sont egale si leurs opérandes sont égales
+	**/
+
+	public function EgaleStrict(Division0 $pDivision2)
+	{
+		return true;
+	}
 }
-//		return $pDivision2->resultat === $this->resultat;
-//		return "Division $this->op1 / $this->op2 = $this->resultat";
 
 ?>
