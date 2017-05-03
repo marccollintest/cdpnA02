@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+  <testsuite name="tests" tests="25" assertions="34" failures="7" errors="1" time="0.165577">
+    <testsuite name="DataProviderTest" file="N:\IMIE\phpunit\tests\DataProviderTest.php" tests="4" assertions="4" failures="0" errors="0" time="0.056557">
+      <testsuite name="DataProviderTest::testAdd" tests="4" assertions="4" failures="0" errors="0" time="0.056557">
+        <testcase name="testAdd with data set #0" assertions="1" time="0.043778"/>
+        <testcase name="testAdd with data set #1" assertions="1" time="0.004984"/>
+        <testcase name="testAdd with data set #2" assertions="1" time="0.003356"/>
+        <testcase name="testAdd with data set #3" assertions="1" time="0.004439"/>
+      </testsuite>
+    </testsuite>
+    <testsuite name="DataTest" file="N:\IMIE\phpunit\tests\DataTest.php" tests="3" assertions="3" failures="1" errors="0" time="0.024389">
+      <testsuite name="DataTest::testAdd" tests="3" assertions="3" failures="1" errors="0" time="0.024389">
+        <testcase name="testAdd with data set #0" assertions="1" time="0.003475"/>
+        <testcase name="testAdd with data set #1" assertions="1" time="0.004229"/>
+        <testcase name="testAdd with data set #2" assertions="1" time="0.016685">
+          <failure type="PHPUnit_Framework_ExpectationFailedException">DataTest::testAdd with data set #2 ('0', '1', '0')
+Failed asserting that 1 matches expected '0'.
+
+N:\IMIE\phpunit\tests\DataTest.php:11
+</failure>
+        </testcase>
+      </testsuite>
+    </testsuite>
+    <testsuite name="DependencyAndDataProviderComboTest" file="N:\IMIE\phpunit\tests\DependencyAndDataProviderComboTest.php" tests="4" assertions="4" failures="1" errors="0" time="0.019376">
+      <testcase name="testProducerFirst" class="DependencyAndDataProviderComboTest" file="N:\IMIE\phpunit\tests\DependencyAndDataProviderComboTest.php" line="9" assertions="1" time="0.004514"/>
+      <testcase name="testProducerSecond" class="DependencyAndDataProviderComboTest" file="N:\IMIE\phpunit\tests\DependencyAndDataProviderComboTest.php" line="15" assertions="1" time="0.002543"/>
+      <testsuite name="DependencyAndDataProviderComboTest::testConsumer" tests="2" assertions="2" failures="1" errors="0" time="0.012319">
+        <testcase name="testConsumer with data set #0" assertions="1" time="0.006476"/>
+        <testcase name="testConsumer with data set #1" assertions="1" time="0.005843">
+          <failure type="PHPUnit_Framework_ExpectationFailedException">DependencyAndDataProviderComboTest::testConsumer with data set #1 ('provider2')
+Failed asserting that two arrays are equal.
+--- Expected
++++ Actual
+@@ @@
+ Array (
+-    0 =&gt; 'provider1'
++    0 =&gt; 'provider2'
+     1 =&gt; 'first'
+     2 =&gt; 'second'
+ )
+
+N:\IMIE\phpunit\tests\DependencyAndDataProviderComboTest.php:31
+</failure>
+        </testcase>
+      </testsuite>
+    </testsuite>
+    <testsuite name="DependencyFailureTest" file="N:\IMIE\phpunit\tests\DependencyFailureTest.php" tests="1" assertions="1" failures="1" errors="0" time="0.002699">
+      <testcase name="testOne" class="DependencyFailureTest" file="N:\IMIE\phpunit\tests\DependencyFailureTest.php" line="4" assertions="1" time="0.002699">
+        <failure type="PHPUnit_Framework_ExpectationFailedException">DependencyFailureTest::testOne
+Failed asserting that false is true.
+
+N:\IMIE\phpunit\tests\DependencyFailureTest.php:6
+</failure>
+      </testcase>
+    </testsuite>
+    <testsuite name="ErrorSuppressionTest" file="N:\IMIE\phpunit\tests\ErrorSuppressionTest.php" tests="1" assertions="0" failures="0" errors="1" time="0.004377">
+      <testcase name="testFileWriting" class="ErrorSuppressionTest" file="N:\IMIE\phpunit\tests\ErrorSuppressionTest.php" line="8" assertions="0" time="0.004377">
+        <error type="PHPUnit_Framework_Error_Warning">ErrorSuppressionTest::testFileWriting
+fopen(/is-not-writeable/file): failed to open stream: No such file or directory
+
+N:\IMIE\phpunit\tests\ErrorSuppressionTest.php:16
+N:\IMIE\phpunit\tests\ErrorSuppressionTest.php:10
+</error>
+      </testcase>
+    </testsuite>
+    <testsuite name="ExceptionTest" file="N:\IMIE\phpunit\tests\ExceptionTest.php" tests="4" assertions="8" failures="2" errors="0" time="0.017679">
+      <testcase name="testExceptionHasRightMessage" class="ExceptionTest" file="N:\IMIE\phpunit\tests\ExceptionTest.php" line="8" assertions="2" time="0.007014">
+        <failure type="PHPUnit_Framework_ExpectationFailedException">ExceptionTest::testExceptionHasRightMessage
+Failed asserting that exception message 'Some Message' contains 'Right Message'.
+
+</failure>
+      </testcase>
+      <testcase name="testExceptionHasRightCode" class="ExceptionTest" file="N:\IMIE\phpunit\tests\ExceptionTest.php" line="17" assertions="2" time="0.005055">
+        <failure type="PHPUnit_Framework_ExpectationFailedException">ExceptionTest::testExceptionHasRightCode
+Failed asserting that 10 is equal to expected exception code 20.
+
+</failure>
+      </testcase>
+      <testcase name="testExceptionHasRightMessage2" class="ExceptionTest" file="N:\IMIE\phpunit\tests\ExceptionTest.php" line="26" assertions="2" time="0.002862"/>
+      <testcase name="testExceptionHasRightCode2" class="ExceptionTest" file="N:\IMIE\phpunit\tests\ExceptionTest.php" line="35" assertions="2" time="0.002748"/>
+    </testsuite>
+    <testsuite name="MultipleDependenciesTest" file="N:\IMIE\phpunit\tests\MultipleDependenciesTest.php" tests="2" assertions="2" failures="1" errors="0" time="0.005133">
+      <testcase name="testProducerFirst" class="MultipleDependenciesTest" file="N:\IMIE\phpunit\tests\MultipleDependenciesTest.php" line="4" assertions="1" time="0.002444"/>
+      <testcase name="testProducerSecond" class="MultipleDependenciesTest" file="N:\IMIE\phpunit\tests\MultipleDependenciesTest.php" line="10" assertions="1" time="0.002689">
+        <failure type="PHPUnit_Framework_ExpectationFailedException">MultipleDependenciesTest::testProducerSecond
+Failed asserting that false is true.
+
+N:\IMIE\phpunit\tests\MultipleDependenciesTest.php:12
+</failure>
+      </testcase>
+    </testsuite>
+    <testsuite name="OutputTest" file="N:\IMIE\phpunit\tests\OutputTest.php" tests="1" assertions="1" failures="1" errors="0" time="0.004742">
+      <testcase name="testExpectBarActualBaz" class="OutputTest" file="N:\IMIE\phpunit\tests\OutputTest.php" line="10" assertions="1" time="0.004742">
+        <failure type="PHPUnit_Framework_ExpectationFailedException">OutputTest::testExpectBarActualBaz
+Failed asserting that two strings are equal.
+--- Expected
++++ Actual
+@@ @@
+-'baz'
++'bazbar'
+
+</failure>
+      </testcase>
+    </testsuite>
+    <testsuite name="PHPErrorTest" file="N:\IMIE\phpunit\tests\PHPErrorTest.php" tests="1" assertions="1" failures="0" errors="0" time="0.007867">
+      <testcase name="testFailingInclude" class="PHPErrorTest" file="N:\IMIE\phpunit\tests\PHPErrorTest.php" line="7" assertions="1" time="0.007867"/>
+    </testsuite>
+    <testsuite name="StackTest" file="N:\IMIE\phpunit\tests\StackTest.php" tests="4" assertions="10" failures="0" errors="0" time="0.022758">
+      <testcase name="testPushAndPop" class="StackTest" file="N:\IMIE\phpunit\tests\StackTest.php" line="4" assertions="5" time="0.008161"/>
+      <testcase name="testEmpty" class="StackTest" file="N:\IMIE\phpunit\tests\StackTest.php" line="16" assertions="1" time="0.004428"/>
+      <testcase name="testPush" class="StackTest" file="N:\IMIE\phpunit\tests\StackTest.php" line="28" assertions="2" time="0.006661"/>
+      <testcase name="testPop" class="StackTest" file="N:\IMIE\phpunit\tests\StackTest.php" line="40" assertions="2" time="0.003508"/>
+    </testsuite>
+  </testsuite>
+</testsuites>

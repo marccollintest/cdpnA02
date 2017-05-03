@@ -1,0 +1,8 @@
+<phpunit strict = "true">
+  <testsuites>
+    <testsuite name="DataSuiteTest">
+      <file>Tests/DataProviderTest.php</file>
+      <file>Tests/DataTest.php</file>
+    </testsuite>
+  </testsuites>
+</phpunit>
