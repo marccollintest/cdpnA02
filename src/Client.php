@@ -3,10 +3,10 @@ class Client
 {
 	public $_Type;
 	public $_Encours;
-	public function __construct($pType, $pEnCours)
+	public function __construct($pType, $pEncours)
 	{
 		$this->_Type = $pType;
-		$this->_EnCours = $pEnCours;
+		$this->_Encours = $pEncours;
 	}
 	public function Accepte($pMontant)
 	{
