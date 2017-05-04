@@ -1,6 +1,6 @@
 <?php
 
-require_once("src/Client2.php");
+require_once("src/Client.php");
 
  class ClientTest2 extends PHPUnit_Framework_TestCase
 {
@@ -10,7 +10,7 @@ require_once("src/Client2.php");
     */
     public function testconstruct()
     {
-        $clt = new Client2("N",25000);
+        $clt = new Client("N",25000);
         $this->AssertEquals("N", $clt->_Type);
         $this->AssertEquals(25000, $clt->_Encours);
 
@@ -18,33 +18,33 @@ require_once("src/Client2.php");
     public function JeuEssaiCalculer1()
     {
         return array(
-array("S", 500,500 ,true),
-array("S", 500,2000,True),
-array("S", 500,7000    ,False),
-array("S", 2000,  500,True),
-array("S", 2000,  2000,False),
-array("S", 2000,   7000    ,False),
-array("S", 5000,  500,True),
-array("S", 5000,  2000,False),
-array("S", 5000,   7000    ,False),
-array("N", 500,500 ,True),
-array("N", 500,2000    ,True),
-array("N", 500,7000    ,True),
-array("N", 2000,  500,True),
-array("N", 2000,  2000,True),
-array("N", 2000,   7000    ,False),
-array("N", 5000,  500,True),
-array("N", 5000,  2000,False),
-array("N", 5000,   7000    ,False),
-array("P", 500,500 ,True),
-array("P", 500,2000    ,True),
-array("P", 500,7000    ,True),
-array("P", 2000,  500,True),
-array("P", 2000,  2000,True),
-array("P", 2000,   7000    ,True),
-array("P", 5000,  500,True),
-array("P", 5000,  2000,True),
-array("P", 5000,   7000    ,false)
+        array("S", 500,500 ,true),
+        array("S", 500,2000,True),
+        array("S", 500,7000    ,False),
+        array("S", 2000,  500,True),
+        array("S", 2000,  2000,False),
+        array("S", 2000,   7000    ,False),
+        array("S", 5000,  500,True),
+        array("S", 5000,  2000,False),
+        array("S", 5000,   7000    ,False),
+        array("N", 500,500 ,True),
+        array("N", 500,2000    ,True),
+        array("N", 500,7000    ,True),
+        array("N", 2000,  500,True),
+        array("N", 2000,  2000,True),
+        array("N", 2000,   7000    ,False),
+        array("N", 5000,  500,True),
+        array("N", 5000,  2000,False),
+        array("N", 5000,   7000    ,False),
+        array("P", 500,500 ,True),
+        array("P", 500,2000    ,True),
+        array("P", 500,7000    ,True),
+        array("P", 2000,  500,True),
+        array("P", 2000,  2000,True),
+        array("P", 2000,   7000    ,True),
+        array("P", 5000,  500,True),
+        array("P", 5000,  2000,True),
+        array("P", 5000,   7000    ,false)
     );
 }
 
@@ -53,7 +53,7 @@ array("P", 5000,   7000    ,false)
     */
     public function testaccepte($pType, $pEncours,$pMt,$pRes)
     {
-        $clt = new client2($pType,$pEncours);
+        $clt = new client($pType,$pEncours);
         $res=$clt->Accepte($pMt);
     $this->AssertEquals($pRes,$res);
     }
