@@ -90,20 +90,26 @@ require_once("src/Media.php");
 
 	public function test1()
 	{
-		$this->_obj = new Media();
-		$this->AssertEquals(EnumETAT::NOUVEAU, $this->_obj->getEtat());
+		$this->_obj = new MediaFTO();
+		$this->_obj->FTO_SetEtat(EnumETAT::DISPONIBLE);
+
+		$this->_obj->Action(EnumACTION::CREER);
+
+		$this->AssertEquals(EnumETAT::DISPONIBLE, $this->_obj->getCodeEtat());
+
 	}
 
 	/**
     *@dataProvider JeuEssaiCalculer1
     */
 
+
 	public function test3($pEtatInit, $pAction, $pEtatResult)
 	{
 		$this->_obj = new MediaFTO();
 		$this->_obj->FTO_SetEtat($pEtatInit);
 		$this->_obj->Action($pAction);
-		$this->AssertEquals($pEtatResult, $this->_obj->getEtat());
+		$this->AssertEquals($pEtatResult, $this->_obj->getCodeEtat());
 	}
 
 }
