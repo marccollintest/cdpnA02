@@ -31,5 +31,36 @@ require_once("src/compteBancaire.php");
 
 	}
 
+
+	public function test3()
+	{
+			$Compte = new compteBancaire("€") ;
+			// Création d'un bouchon du WS
+			$WS=  $this->GetMockBuilder(WSBank::class) ->getMock();
+    	    $map = [
+            ['€', '€', 1.0],
+            ['$', '$', 1.0],
+            ['£', '£', 1.0],
+            ['€', '$', 1.5],
+            ['$', '€', 1/1.5],
+            ['$', '€', 1/1.5],
+            ['€', '£', 2],
+            ['£', '€', 1/2]
+        	];
+        	$WS->method('getTaux')
+             ->will($this->returnValueMap($map));
+
+			$Compte->setWS($WS);
+
+			$Compte->Crediter(100, "$");
+			$this->AssertEquals(150,$Compte->getSolde("€"));
+			$this->AssertEquals(100,$Compte->getSolde("$"));
+
+       		$WS->expects($this->any())
+                 ->method('getTaux');
+
+       		$WS->expects($this->exactly(1))
+                 ->method('getTaux');
+	}
 }
 ?>
