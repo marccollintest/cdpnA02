@@ -1,6 +1,6 @@
 <?php
 
-require_once("src/Client.php");
+require_once("src/Client2.php");
 
  class ClientTest2 extends PHPUnit_Framework_TestCase
 {
@@ -10,7 +10,7 @@ require_once("src/Client.php");
     */
     public function testconstruct()
     {
-        $clt = new Client("N",25000);
+        $clt = new Client2("N",25000);
         $this->AssertEquals("N", $clt->_Type);
         $this->AssertEquals(25000, $clt->_Encours);
 
@@ -53,7 +53,7 @@ array("P", 5000,   7000    ,false)
     */
     public function testaccepte($pType, $pEncours,$pMt,$pRes)
     {
-        $clt = new client($pType,$pEncours);
+        $clt = new client2($pType,$pEncours);
         $res=$clt->Accepte($pMt);
     $this->AssertEquals($pRes,$res);
     }
