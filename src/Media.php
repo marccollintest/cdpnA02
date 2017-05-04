@@ -24,26 +24,34 @@ abstract class EnumACTION
 require_once("src/EnumMedia.php");
 class Media
 {
-	public  $_Etat;
+	private  $_Etat;
 	public function __construct()
 	{
-		$this->_Etat = $this->Action(EnumACTION::CREER);
+		$this->_Etat = EnumETAT::NOUVEAU;
 	}
 
 	public function Action ($pAction)
 	{
-		 $bReturn = EnumETAT::ASUPPR;
-		if ($pAction === EnumACTION::CREER)
-		{
-			$bReturn = EnumETAT::NOUVEAU;
-		}
+		 $bReturn = $this->_Etat;
 		return $bReturn;
 	}
 
-	public Preter()
+
+	public function getEtat()
 	{
-		$this->_Etat = Action(EnumACTION::PRETER);
+		return $this->_Etat;
 	}
+
+
 }//Class Media
 
+class MediaFTO extends Media
+{
+
+	public function FTO_setEtat( $pEtat)
+	{
+		$this->_Etat = $pEtat;
+	}
+
+}//Class MediaFTO
 ?>

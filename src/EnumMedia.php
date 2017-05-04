@@ -18,7 +18,7 @@ abstract class EnumACTION
     const RENDRE = 4;
     const PERDRE = 5;
     const REPARER = 6;
-    const METRRE_A_REPARER = 7;
+    const METTRE_A_REPARER = 7;
     const SUPPRIMER = 8;
 }
 ?>
